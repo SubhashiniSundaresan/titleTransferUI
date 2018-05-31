@@ -1,0 +1,194 @@
+<div *ngIf=(errorMessage)>
+  <p-message severity="error" text="{{errorMessage}}" life="3000" closable="false"></p-message>
+</div>
+
+<div>
+  <p-button label="Create Property Listing" (click)='displayAsset()' styleClass="ui-button-info"></p-button>&nbsp;&nbsp;
+  <p-button label="Approve Sale Agreement" (click)='approveSaleAgreement()' styleClass="ui-button-info"></p-button>
+</div>
+<br><br>
+<b>My Profile</b>
+<p-table [autoLayout]="true" [resizableColumns]="true" [columns]="cols" [value]="allParticipants">
+  <ng-template pTemplate="header" let-columns>
+    <tr>
+      <th *ngFor="let col of columns">
+        {{col.header}}
+      </th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-rowData let-columns="columns">
+    <tr>
+      <td *ngFor="let col of columns">
+        {{rowData[col.field]}}
+      </td>
+    </tr>
+  </ng-template>
+</p-table>
+<br><br>
+<div  *ngIf="allAssets.length > 0">
+  <b>Property Listing</b>
+  <p-table [autoLayout]="true" [resizableColumns]="true" [columns]="propertyCols" [value]="allAssets">
+    <ng-template pTemplate="header" let-columns>
+      <tr>
+        <th *ngFor="let col of columns">
+          {{col.header}}
+        </th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-rowData let-columns="columns">
+      <tr>
+        <td *ngFor="let col of columns">
+          {{rowData[col.field]}}
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>
+<div *ngIf="allSaleAgreement.length > 0">
+  <b>Sale Agreement</b>
+  <p-table [autoLayout]="true" [resizableColumns]="true" [columns]="agreementCols" [value]="allSaleAgreement" [(selection)]="selectedAgreement" dataKey="saleAgreementID">
+    <ng-template pTemplate="header" let-columns>
+      <tr>
+        <th style="width: 2.25em"></th>
+        <th *ngFor="let col of columns">
+          {{col.header}}
+        </th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-rowData let-columns="columns">
+      <tr [pSelectableRow]="rowData">
+        <td>
+          <p-tableRadioButton [value]="rowData"></p-tableRadioButton>
+        </td>
+        <td *ngFor="let col of columns">
+          {{rowData[col.field]}}
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>
+<br><br>
+<div  *ngIf="allDeeds.length > 0">
+  <b>Deeds</b>
+  <p-table [autoLayout]="true" [resizableColumns]="true" [columns]="deedCols" [value]="allDeeds">
+    <ng-template pTemplate="header" let-columns>
+      <tr>
+        <th *ngFor="let col of columns">
+          {{col.header}}
+        </th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-rowData let-columns="columns">
+      <tr>
+        <td *ngFor="let col of columns">
+          {{rowData[col.field]}}
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>
+<div  *ngIf="allTransactions.length > 0">
+  <b>Property Listing</b>
+  <p-table [autoLayout]="true" [resizableColumns]="true" [columns]="transactionCols" [value]="allTransactions">
+    <ng-template pTemplate="header" let-columns>
+      <tr>
+        <th *ngFor="let col of columns">
+          {{col.header}}
+        </th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-rowData let-columns="columns">
+      <tr>
+        <td *ngFor="let col of columns">
+          {{rowData[col.field]}}
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>
+<p-dialog header="Add Property Listing" [(visible)]="display">
+  <form [formGroup]="myForm">
+    <div class="modal-body">
+
+
+
+
+
+      <div class="form-group text-left">
+        <label>propertyListingID</label>
+
+        <input formControlName="propertyListingID" type="text" class="form-control">
+
+      </div>
+
+
+
+
+      <div class="form-group text-left">
+        <label>MLS</label>
+
+        <input formControlName="MLS" type="text" class="form-control">
+
+      </div>
+
+
+
+
+      <div class="form-group text-left">
+        <label>URL</label>
+
+        <input formControlName="URL" type="text" class="form-control">
+
+      </div>
+
+
+
+
+      <div class="form-group text-left">
+        <label>sqMeters</label>
+
+        <input formControlName="sqMeters" type="text" class="form-control">
+
+      </div>
+
+
+
+
+      <div class="form-group text-left">
+        <label>address</label>
+
+        <input formControlName="address" type="text" class="form-control">
+
+      </div>
+
+
+
+
+      <div class="form-group text-left">
+        <label>amount</label>
+
+        <input formControlName="amount" type="number" class="form-control">
+
+      </div>
+
+
+
+
+      <div class="form-group text-left">
+        <label>seller</label>
+
+        <textarea formControlName="seller" class="form-control" rows="3"></textarea>
+
+      </div>
+
+
+
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+      <button (click)="addAsset(myForm);" type="submit" class="btn btn-success" value="Refresh Page" onClick="setTimeout(window.location.reload.bind(window.location), 2000);" data-dismiss="modal">Confirm</button>
+
+    </div>
+  </form>
+</p-dialog>
+

@@ -1,0 +1,86 @@
+body {
+  background-position:center;
+  font-family: 'Open Sans',Tahoma, Verdana, Arial, sans-serif, Faruma, Faseyha;
+}
+em{
+  color:#D54135;
+  font-size:1.1em;
+}
+h1{
+  color:green;
+  text-shadow: 2px 2px #000000;
+}
+.entry-social {
+  margin-bottom: 20px;
+  color: rgb(126, 126, 126);
+  display: block;
+  font-family: 'Open Sans',Tahoma, Verdana, Arial, sans-serif, Faruma, Faseyha;
+  font-size: 14px;
+  font-weight: normal;
+  height: auto;
+  line-height:23.799999237060547px;
+  margin-bottom: 20px;
+  width: 100%;
+  width: 100%;
+  float:left;
+  border: solid 0px #aaa;
+  text-align: center;
+}
+.entry-social div {
+  display: block;
+  width:138px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  /* bring your own prefixes */
+  transform: translate(-50%, -50%);
+}
+.entry-social a {
+  text-decoration:none;
+  display: block;
+  padding-left: 20px;
+  color: #FFFFFF !important;
+  font-weight: bold;
+  transition:background-color .3s;
+}
+.entry-social .linkedin a {
+  padding: 7px 10px 7px 32px;
+  background: #136F9B url('https://4.bp.blogspot.com/-yuEMxhpIXPc/UeDltjBGR1I/AAAAAAAAAr4/kgidavlGbY8/s1600/linkedin14.png') no-repeat 10px center;
+}
+body {
+  position: relative;
+}
+
+.navbar-dark .navbar-brand {
+  color:#fff !important;
+}
+
+#collapseEx2 .navbar-nav li a.active {
+  background:rgba(255,255,255,.15);
+}
+
+#home .view {
+  height: 100vh;
+}
+
+.full-bg-img {
+  color: #fff;
+}
+
+#home p, .title{
+  font-weight:100;
+}
+
+/*Fixed background*/
+.fixed-bg {
+  background: url("https://mdbootstrap.com/images/regular/work/img%20(1).jpg") no-repeat center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 55vh;
+}
+
+main {
+  margin-bottom: -20px;
+}

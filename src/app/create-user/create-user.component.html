@@ -1,0 +1,99 @@
+
+<form [formGroup]="myForm" (ngSubmit)="addParticipant(myForm)">
+<div class="ui-grid ui-grid-responsive ui-grid-pad ui-fluid" style="margin: 10px 0px">
+  <div class="ui-grid-row">
+    <div class="ui-grid-col-2">
+      FullName *:
+    </div>
+    <div class="ui-grid-col-6">
+      <input pInputText type="text" formControlName="name" placeholder="Required"/>
+    </div>
+    <div class="ui-grid-col-4">
+      <div class="ui-message ui-messages-error ui-corner-all" *ngIf="!myForm.controls['name'].valid&&myForm.controls['name'].dirty">
+        <i class="fa fa-close"></i>
+        FullName is required
+      </div>
+    </div>
+  </div>
+</div>
+  <div class="ui-grid ui-grid-responsive ui-grid-pad ui-fluid" style="margin: 10px 0px">
+    <div class="ui-grid-row">
+      <div class="ui-grid-col-2">
+        Address *:
+      </div>
+      <div class="ui-grid-col-6">
+        <input pInputText type="text" formControlName="address" placeholder="Required"/>
+      </div>
+      <div class="ui-grid-col-4">
+        <div class="ui-message ui-messages-error ui-corner-all" *ngIf="!myForm.controls['address'].valid&&myForm.controls['address'].dirty">
+          <i class="fa fa-close"></i>
+          Address is required
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="ui-grid ui-grid-responsive ui-grid-pad ui-fluid" style="margin: 10px 0px">
+    <div class="ui-grid-row">
+      <div class="ui-grid-col-2">
+        Email *:
+      </div>
+      <div class="ui-grid-col-6">
+        <input pInputText type="text" formControlName="emailAddress" placeholder="Required"/>
+      </div>
+      <div class="ui-grid-col-4">
+        <div class="ui-message ui-messages-error ui-corner-all" *ngIf="!myForm.controls['emailAddress'].valid&&myForm.controls['emailAddress'].dirty">
+          <i class="fa fa-close"></i>
+          Email is required
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="ui-grid-row">
+    <div class="ui-grid-col-2">
+      Type *:
+    </div>
+    <div class="ui-grid-col-6">
+      <p-dropdown [options]="types" formControlName="type" [autoWidth]="false"></p-dropdown>
+    </div>
+    <div class="ui-grid-col-4">
+      <div class="ui-message ui-messages-error ui-corner-all" *ngIf="!myForm.controls['type'].valid&&myForm.controls['type'].dirty">
+        <i class="fa fa-close"></i>
+        Type is required
+      </div>
+    </div>
+  </div>
+  <div class="ui-grid-row">
+    <div class="ui-grid-col-2"></div>
+    <div class="ui-grid-col-6">
+      <button pButton type="submit" label="Submit" [disabled]="!myForm.valid"></button>
+    </div>
+    <div class="ui-grid-col-4"></div>
+  </div>
+</form>
+<!-- <div class="row justify-content-md-center">
+    <div class="col-md-4">
+        <img class="user-avatar" src="assets/images/logo.png" width="150px" />
+        <h1>Create User</h1>
+        <form role="form">
+            <div class="form-content">
+                <div class="form-group">
+                    <input type="text" class="form-control input-underline input-lg" id="" placeholder="Full Name">
+                </div>
+
+                <div class="form-group">
+                    <input type="text" class="form-control input-underline input-lg" id="" placeholder="Email">
+                </div>
+
+                <div class="form-group">
+                    <input type="password" class="form-control input-underline input-lg" id="" placeholder="Password">
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control input-underline input-lg" id="" placeholder="Repeat Password">
+                </div>
+            </div>
+            <a class="btn rounded-btn" [routerLink]="['/dashboard']"> Register </a>&nbsp;
+            <a class="btn rounded-btn" [routerLink]="['/login']"> Log in </a>
+        </form>
+    </div>
+</div>
+-->
