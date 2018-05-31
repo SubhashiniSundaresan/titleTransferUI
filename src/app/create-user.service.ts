@@ -5,7 +5,7 @@ import { HttpClient , HttpHeaders } from '@angular/common/http';
 
 @Injectable()
 export class CreateUserService {
-  private baseUrl = 'http://localhost:';
+  private baseUrl = 'http://ec2-35-172-232-47.compute-1.amazonaws.com:';
   //private baseUrl ='http://13.124.13.55:';
   private adminUrl= this.baseUrl + '3001/api/';
   private multiUrl= this.baseUrl + '3000/api/';

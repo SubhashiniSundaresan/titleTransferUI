@@ -25,7 +25,7 @@ export class DataService<Type> {
     private headers: Headers;
 
     constructor(private http: Http) {
-        this.actionUrl = 'http://localhost:3000/api/';
+        this.actionUrl = 'http://ec2-35-172-232-47.compute-1.amazonaws.com:3000/api/';
         this.headers = new Headers();
         this.headers.append('Content-Type', 'application/json');
         this.headers.append('Accept', 'application/json');
@@ -67,7 +67,7 @@ export class DataService<Type> {
     }
 
   public getTransactions(): Observable<any> {
-    return this.http.get('http://localhost:3001/api/system/historian', { withCredentials: true })
+    return this.http.get('http://ec2-35-172-232-47.compute-1.amazonaws.com:3001/api/system/historian', { withCredentials: true })
       .map(this.extractData)
       .catch(error => this.handleError(error.json()));
   }

@@ -5,12 +5,12 @@ import { HttpClient , HttpHeaders } from '@angular/common/http';
 import 'rxjs/Rx';
 @Injectable()
 export class CreateCardService {
-  private adminUrl ="http://localhost:";
+  private adminUrl = 'http://ec2-35-172-232-47.compute-1.amazonaws.com:';
   //private adminUrl ='http://13.124.13.55:';
   constructor(private http : Http){
   }
   checkWallet() {
-    return this.http.get('http://localhost:3000/api/wallet', {withCredentials: true})
+    return this.http.get('http://ec2-35-172-232-47.compute-1.amazonaws.com:3000/api/wallet', {withCredentials: true})
       .map(this.extractData)
       .catch(this.handleError);
   }

@@ -15,7 +15,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import {DataService} from './data.service';
-import {BuyerService} from './Buyer.service';
+import {BuyerService} from './buyer.service';
 import {Buy} from './org.acme.titletransfer';
 import 'rxjs/Rx';
 

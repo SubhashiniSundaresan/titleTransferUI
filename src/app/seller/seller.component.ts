@@ -25,8 +25,8 @@ import {Seller} from '../org.acme.titletransfer';
 
 @Component({
   selector: 'app-seller',
-  templateUrl: './Seller.component.html',
-  styleUrls: ['./Seller.component.css'],
+  templateUrl: './seller.component.html',
+  styleUrls: ['./seller.component.css'],
   providers: [SellerService, PropertyListingService, SaleAgreementService, DeedService, DataService,
     ApproveSaleAgreementService]
 })
