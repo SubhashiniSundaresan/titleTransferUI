@@ -1,3 +1,4 @@
+/*
 body {
   background-position:center;
   font-family: 'Open Sans',Tahoma, Verdana, Arial, sans-serif, Faruma, Faseyha;
@@ -32,7 +33,7 @@ h1{
   position: fixed;
   top: 50%;
   left: 50%;
-  /* bring your own prefixes */
+  !* bring your own prefixes *!
   transform: translate(-50%, -50%);
 }
 .entry-social a {
@@ -71,7 +72,7 @@ body {
   font-weight:100;
 }
 
-/*Fixed background*/
+!*Fixed background*!
 .fixed-bg {
   background: url("https://mdbootstrap.com/images/regular/work/img%20(1).jpg") no-repeat center;
   -webkit-background-size: cover;
@@ -84,7 +85,7 @@ body {
 main {
   margin-bottom: -20px;
 }
-/*
+!*
 .rounded-circle {
 
 }
@@ -97,7 +98,7 @@ main {
   background-image:url(../assets/images/landing.jpg)
 }
 
-*/
+*!
 .btn-lg {
   background-color: #563d7c!important;
   border: none;
@@ -164,3 +165,4 @@ h1:after {
   color: darkgoldenrod;
   font-size: -webkit-xxx-large;
 }
+*/

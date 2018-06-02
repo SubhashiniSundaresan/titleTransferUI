@@ -26,9 +26,17 @@
              "src/styles.css",
               "./node_modules/font-awesome/css/font-awesome.min.css",
               "./node_modules/primeng/resources/primeng.min.css",
-              "./node_modules/primeng/resources/themes/darkness/theme.css"
+              "./node_modules/primeng/resources/themes/darkness/theme.css",
+              "src/assets/Medilab/css/bootstrap.min.css"
             ],
-            "scripts": []
+            "scripts": [
+              "src/assets/Medilab/js/jquery.min.js",
+              "src/assets/Medilab/js/jquery.easing.min.js",
+              "src/assets/Medilab/js/custom.js",
+              "src/assets/Medilab/contactform/contactform.js",
+              "src/assets/Medilab/js/bootstrap.min.js"
+
+            ]
           },
           "configurations": {
             "production": {
