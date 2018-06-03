@@ -27,14 +27,24 @@
               "./node_modules/font-awesome/css/font-awesome.min.css",
               "./node_modules/primeng/resources/primeng.min.css",
               "./node_modules/primeng/resources/themes/darkness/theme.css",
-              "src/assets/Medilab/css/bootstrap.min.css"
+              "src/assets/justice/css/animate.css",
+              "src/assets/justice/css/icomoon.css",
+              "src/assets/justice/css/themify-icons.css",
+              "src/assets/justice/css/bootstrap.css",
+              "src/assets/justice/css/magnific-popup.css",
+              "src/assets/justice/css/owl.theme.default.min.css"
             ],
             "scripts": [
-              "src/assets/Medilab/js/jquery.min.js",
-              "src/assets/Medilab/js/jquery.easing.min.js",
-              "src/assets/Medilab/js/custom.js",
-              "src/assets/Medilab/contactform/contactform.js",
-              "src/assets/Medilab/js/bootstrap.min.js"
+              "src/assets/justice/js/modernizr-2.6.2.min.js",
+              "src/assets/justice/js/respond.min.js",
+              "src/assets/justice/js/jquery.min.js",
+              "src/assets/justice/js/jquery.easing.1.3.js",
+              "src/assets/justice/js/bootstrap.min.js",
+              "src/assets/justice/js/jquery.waypoints.min.js",
+              "src/assets/justice/js/jquery.stellar.min.js",
+              "src/assets/justice/js/jquery.magnific-popup.min.js",
+              "src/assets/justice/js/magnific-popup-options.js",
+              "src/assets/justice/js/main.js"
 
             ]
           },
