@@ -111,15 +111,17 @@ export class SellerComponent implements OnInit {
     this.transactionCols = [
       { field: 'transactionId', header: 'Transaction ID' },
       { field: 'transactionType', header: 'Transaction Type' },
+      { field: 'transactionTimestamp', header: 'Transaction Timestamp' },
       { field: 'transactionInvoked', header: 'Transaction Invoked' },
       { field: 'participantInvoking', header: 'Participant Invoking' },
       { field: 'identityUsed', header: 'Identity Used' },
       { field: 'eventsEmitted', header: 'Events Emitted' },
-      { field: 'transactionTimestamp', header: 'Transaction Timestamp' },
+
     ];
     this.loadContent();
   }
   loadContent() {
+    this.display = false;
     this.loadAll();
     this.loadAllProperty();
     this.loadAllSaleAgreement();
@@ -195,6 +197,7 @@ export class SellerComponent implements OnInit {
       .then((result) => {
         this.errorMessage = null;
         result.forEach(asset => {
+          asset.status = JSON.parse(asset.status).text;
           tempList.push(asset);
         });
         this.allSaleAgreement = tempList;

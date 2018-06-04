@@ -106,15 +106,16 @@ export class BuyerComponent implements OnInit {
     this.transactionCols = [
       { field: 'transactionId', header: 'Transaction ID'  , width: '300px' },
       { field: 'transactionType', header: 'Transaction Type'  , width: '300px' },
+      { field: 'transactionTimestamp', header: 'Transaction Timestamp' , width: '300px' },
       { field: 'transactionInvoked', header: 'Transaction Invoked'  , width: '300px' },
       { field: 'participantInvoking', header: 'Participant Invoking'  , width: '300px' },
       { field: 'identityUsed', header: 'Identity Used'  , width: '700px' },
-      { field: 'eventsEmitted', header: 'Events Emitted'  , width: '300px' },
-      { field: 'transactionTimestamp', header: 'Transaction Timestamp' , width: '300px' }
+      { field: 'eventsEmitted', header: 'Events Emitted'  , width: '300px' }
     ];
     this.loadContent();
   }
   loadContent() {
+    this.display = false;
     this.loadAll();
     this.loadAllProperty();
     this.loadAllSaleAgreement();
@@ -130,7 +131,7 @@ export class BuyerComponent implements OnInit {
         result.forEach(asset => {
           tempList.push(asset);
         });
-        this.allAssets = tempList;
+        this.allDeeds = tempList;
       })
       .catch((error) => {
         if (error === 'Server error') {
@@ -150,6 +151,7 @@ export class BuyerComponent implements OnInit {
         this.errorMessage = null;
         result.forEach(asset => {
           tempList.push(asset);
+
         });
         this.allProperties = tempList;
       })
@@ -190,6 +192,7 @@ export class BuyerComponent implements OnInit {
       .then((result) => {
         this.errorMessage = null;
         result.forEach(asset => {
+          asset.status = JSON.parse(asset.status).text;
           tempList.push(asset);
         });
         this.allSaleAgreement = tempList;

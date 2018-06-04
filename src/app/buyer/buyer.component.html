@@ -1,110 +1,123 @@
 <div *ngIf=(errorMessage)>
   <p-message severity="error" text="{{errorMessage}}" life="3000" closable="false"></p-message>
 </div>
+
+<div *ngIf="allParticipants.length>0" id="containerBox">
+  <div id="success-box">
+    <div class="dot"></div>
+    <div class="dot two"></div>
+    <div class="face">
+      <div class="eye"></div>
+      <div class="eye right"></div>
+      <div class="mouth happy"></div>
+    </div>
+    <div class="shadow scale"></div>
+    <div class="message"><h1 class="alert">Hi {{allParticipants[0].name}}</h1>
+      <p>Your ID is {{allParticipants[0].buyerID}}. You are a buyer.</p>
+    <p>{{allParticipants[0].emailAddress}}, {{allParticipants[0].address}}</p></div>
+
+  </div>
+</div>
+<br><br>
 <div>
-<p-button label="Create Sale Agreement" (click)="displayAsset()" styleClass="ui-button-info"></p-button>&nbsp;&nbsp;
-<p-button label="Make a Purchase" (click)='purchaseTransaction()' styleClass="ui-button-info"></p-button>
+  <p-button label="Create Sale Agreement" (click)="displayAsset()"></p-button>&nbsp;&nbsp;
+  <p-button label="Make a Purchase" [disabled]="!selectedAgreement" (click)='purchaseTransaction()'></p-button>
 </div>
 <br><br>
-<b>My Profile</b>
-<p-table [autoLayout]="true" [resizableColumns]="true" [columns]="cols" [value]="allParticipants">
-  <ng-template pTemplate="header" let-columns>
-    <tr>
-      <th *ngFor="let col of columns">
-        {{col.header}}
-      </th>
-    </tr>
-  </ng-template>
-  <ng-template pTemplate="body" let-rowData let-columns="columns">
-    <tr>
-      <td *ngFor="let col of columns">
-        {{rowData[col.field]}}
-      </td>
-    </tr>
-  </ng-template>
-</p-table>
+<p-tabView  *ngIf="allParticipants.length>0" orientation="left">
+  <p-tabPanel *ngIf="allProperties.length > 0" header="Property Listing">
+
+      <p-table [autoLayout]="true" [resizableColumns]="true" [columns]="propertyCols" [value]="allProperties">
+        <ng-template pTemplate="header" let-columns>
+          <tr>
+            <th *ngFor="let col of columns" [pSortableColumn]="col.field">
+              {{col.header}}
+            </th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-rowData let-columns="columns">
+          <tr>
+            <td *ngFor="let col of columns">
+              {{rowData[col.field]}}
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
+  </p-tabPanel>
+  <p-tabPanel *ngIf="allSaleAgreement.length > 0" header="Sale Agreement">
+    <div>
+      <p-table [autoLayout]="true" [resizableColumns]="true" [columns]="agreementCols" [value]="allSaleAgreement" [(selection)]="selectedAgreement" dataKey="saleAgreementID">
+        <ng-template pTemplate="header" let-columns>
+          <tr>
+            <th style="width: 2.25em"></th>
+            <th *ngFor="let col of columns" [pSortableColumn]="col.field">
+              {{col.header}}
+            </th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-rowData let-columns="columns">
+          <tr [pSelectableRow]="rowData">
+            <td>
+              <p-tableRadioButton [value]="rowData"></p-tableRadioButton>
+            </td>
+            <td *ngFor="let col of columns">
+
+
+                {{rowData[col.field]}}
+
+
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </div>
+  </p-tabPanel>
+  <p-tabPanel *ngIf="allDeeds.length > 0" header="Deeds">
+    <div>
+      <p-table [autoLayout]="true" [resizableColumns]="true" [columns]="deedCols" [value]="allDeeds">
+        <ng-template pTemplate="header" let-columns>
+          <tr>
+            <th *ngFor="let col of columns" [pSortableColumn]="col.field">
+              {{col.header}}
+            </th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-rowData let-columns="columns">
+          <tr>
+            <td *ngFor="let col of columns">
+              {{rowData[col.field]}}
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </div>
+  </p-tabPanel>
+  <p-tabPanel *ngIf="allTransactions.length > 0" header="Transactions">
+    <div>
+      <p-table [autoLayout]="true"  [paginator]="true" [rows]="5" scrollHeight="200px" [resizableColumns]="true" [columns]="transactionCols" [value]="allTransactions">
+        <ng-template pTemplate="header" let-columns>
+          <tr>
+            <th *ngFor="let col of columns" [pSortableColumn]="col.field">
+              {{col.header}}
+            </th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-rowData let-columns="columns">
+          <tr>
+            <td *ngFor="let col of columns">
+              {{rowData[col.field]}}
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </div>
+  </p-tabPanel>
+</p-tabView>
+
+
 <br><br>
-<div  *ngIf="allProperties.length > 0">
-<b>Property Listing</b>
-<p-table [autoLayout]="true" [resizableColumns]="true" [columns]="propertyCols" [value]="allProperties">
-  <ng-template pTemplate="header" let-columns>
-    <tr>
-      <th *ngFor="let col of columns">
-        {{col.header}}
-      </th>
-    </tr>
-  </ng-template>
-  <ng-template pTemplate="body" let-rowData let-columns="columns">
-    <tr>
-      <td *ngFor="let col of columns">
-        {{rowData[col.field]}}
-      </td>
-    </tr>
-  </ng-template>
-</p-table>
-</div>
-<div *ngIf="allSaleAgreement.length > 0">
-  <b>Sale Agreement</b>
-  <p-table [autoLayout]="true" [resizableColumns]="true" [columns]="agreementCols" [value]="allSaleAgreement" [(selection)]="selectedAgreement" dataKey="saleAgreementID">
-    <ng-template pTemplate="header" let-columns>
-      <tr>
-        <th style="width: 2.25em"></th>
-        <th *ngFor="let col of columns">
-          {{col.header}}
-        </th>
-      </tr>
-    </ng-template>
-    <ng-template pTemplate="body" let-rowData let-columns="columns">
-      <tr [pSelectableRow]="rowData">
-        <td>
-          <p-tableRadioButton [value]="rowData"></p-tableRadioButton>
-        </td>
-        <td *ngFor="let col of columns">
-          {{rowData[col.field]}}
-        </td>
-      </tr>
-    </ng-template>
-  </p-table>
-</div>
-<br><br>
-<div  *ngIf="allDeeds.length > 0">
-  <b>Deeds</b>
-  <p-table [autoLayout]="true" [resizableColumns]="true" [columns]="deedCols" [value]="allDeeds">
-    <ng-template pTemplate="header" let-columns>
-      <tr>
-        <th *ngFor="let col of columns">
-          {{col.header}}
-        </th>
-      </tr>
-    </ng-template>
-    <ng-template pTemplate="body" let-rowData let-columns="columns">
-      <tr>
-        <td *ngFor="let col of columns">
-          {{rowData[col.field]}}
-        </td>
-      </tr>
-    </ng-template>
-  </p-table>
-</div>
-<div  *ngIf="allTransactions.length > 0">
-  <b>Transactions</b>
-  <p-table [autoLayout]="true" [resizableColumns]="true" [autoLayout]="true" [columns]="transactionCols" [value]="allTransactions">
-    <ng-template pTemplate="header" let-columns>
-      <tr>
-        <th *ngFor="let col of columns">
-          {{col.header}}
-        </th>
-      </tr>
-    </ng-template>
-    <ng-template pTemplate="body" let-rowData let-columns="columns">
-      <tr>
-        <td *ngFor="let col of columns">
-          {{rowData[col.field]}}
-        </td>
-      </tr>
-    </ng-template>
-  </p-table>
-</div>
+
+
 <p-dialog header="Add Sale Agreement" [(visible)]="display">
   <form [formGroup]="myForm">
     <div class="modal-body">
@@ -142,7 +155,7 @@
 
     </div>
     <div class="modal-footer">
-      <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+      <button type="button" class="btn btn-default" (click)="loadContent()" data-dismiss="modal">Cancel</button>
       <button (click)="addTransaction(myForm);" type="submit" class="btn btn-success" data-dismiss="modal">Confirm</button>
 
     </div>

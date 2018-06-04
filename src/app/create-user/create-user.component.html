@@ -1,9 +1,15 @@
-
+<div class="login-page">
+  <div class="form">
 <form [formGroup]="myForm" (ngSubmit)="addParticipant(myForm)">
+  <div class="ui-grid ui-grid-responsive ui-grid-pad ui-fluid" style="margin: 30px 0px">
+    <div class="ui-grid-row">
+  <h1>SIGN UP</h1>
+    </div>
+  </div>
 <div class="ui-grid ui-grid-responsive ui-grid-pad ui-fluid" style="margin: 10px 0px">
   <div class="ui-grid-row">
-    <div class="ui-grid-col-2">
-      FullName *:
+    <div class="ui-grid-col-2" style="padding: 15px;">
+      NAME
     </div>
     <div class="ui-grid-col-6">
       <input pInputText type="text" formControlName="name" placeholder="Required"/>
@@ -11,15 +17,15 @@
     <div class="ui-grid-col-4">
       <div class="ui-message ui-messages-error ui-corner-all" *ngIf="!myForm.controls['name'].valid&&myForm.controls['name'].dirty">
         <i class="fa fa-close"></i>
-        FullName is required
+        Name is required
       </div>
     </div>
   </div>
 </div>
   <div class="ui-grid ui-grid-responsive ui-grid-pad ui-fluid" style="margin: 10px 0px">
     <div class="ui-grid-row">
-      <div class="ui-grid-col-2">
-        Address *:
+      <div class="ui-grid-col-2"  style="padding: 15px;">
+        ADDRESS
       </div>
       <div class="ui-grid-col-6">
         <input pInputText type="text" formControlName="address" placeholder="Required"/>
@@ -34,8 +40,8 @@
   </div>
   <div class="ui-grid ui-grid-responsive ui-grid-pad ui-fluid" style="margin: 10px 0px">
     <div class="ui-grid-row">
-      <div class="ui-grid-col-2">
-        Email *:
+      <div class="ui-grid-col-2"  style="padding: 15px;">
+        EMAIL
       </div>
       <div class="ui-grid-col-6">
         <input pInputText type="text" formControlName="emailAddress" placeholder="Required"/>
@@ -48,9 +54,10 @@
       </div>
     </div>
   </div>
+  <div class="ui-grid ui-grid-responsive ui-grid-pad ui-fluid" style="margin: 10px 0px">
   <div class="ui-grid-row">
     <div class="ui-grid-col-2">
-      Type *:
+      TYPE
     </div>
     <div class="ui-grid-col-6">
       <p-dropdown [options]="types" formControlName="type" [autoWidth]="false"></p-dropdown>
@@ -65,11 +72,14 @@
   <div class="ui-grid-row">
     <div class="ui-grid-col-2"></div>
     <div class="ui-grid-col-6">
-      <button pButton type="submit" label="Submit" [disabled]="!myForm.valid"></button>
+      <button pButton type="submit" class="submitButton" label="Submit" [disabled]="!myForm.valid"></button>
     </div>
     <div class="ui-grid-col-4"></div>
   </div>
+  </div>
 </form>
+  </div>
+</div>
 <!-- <div class="row justify-content-md-center">
     <div class="col-md-4">
         <img class="user-avatar" src="assets/images/logo.png" width="150px" />
