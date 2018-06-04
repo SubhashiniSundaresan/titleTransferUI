@@ -6,8 +6,6 @@
 <br><br>
 <div *ngIf="allParticipants.length>0" id="containerBox">
   <div id="success-box">
-    <div class="dot"></div>
-    <div class="dot two"></div>
     <div class="face">
       <div class="eye"></div>
       <div class="eye right"></div>
@@ -15,7 +13,7 @@
     </div>
     <div class="shadow scale"></div>
     <div class="message"><h1 class="alert">Hi {{allParticipants[0].name}}</h1>
-      <p>Your ID is {{allParticipants[0].sellerID}}. You are a buyer.</p>
+      <p>Your ID is {{allParticipants[0].sellerID}}. You are a Seller.</p>
       <p>{{allParticipants[0].emailAddress}}, {{allParticipants[0].address}}</p></div>
 
   </div>
@@ -25,7 +23,8 @@
   <p-button label="Create Property Listing" (click)='displayAsset()'></p-button>&nbsp;&nbsp;
   <p-button label="Approve Sale Agreement" [disabled]="!selectedAgreement"(click)='approveSaleAgreement()'></p-button>
 </div>
-<p-tabView  orientation="left">
+<br><br>
+<p-tabView  *ngIf="allParticipants.length>0" orientation="left">
   <p-tabPanel *ngIf="allAssets.length > 0" header="Property Listing">
 
     <p-table [autoLayout]="true" [resizableColumns]="true" [columns]="propertyCols" [value]="allAssets">
@@ -47,7 +46,7 @@
   </p-tabPanel>
   <p-tabPanel *ngIf="allSaleAgreement.length > 0" header="Sale Agreement">
     <div>
-      <p-table [autoLayout]="true" [scrollable]="true" [style]="{width:'500px'}" scrollHeight="200px" [resizableColumns]="true" [columns]="agreementCols" [value]="allSaleAgreement" [(selection)]="selectedAgreement" dataKey="saleAgreementID">
+      <p-table [autoLayout]="true" [resizableColumns]="true" [columns]="agreementCols" [value]="allSaleAgreement" [(selection)]="selectedAgreement" dataKey="saleAgreementID">
         <ng-template pTemplate="header" let-columns>
           <tr>
             <th style="width: 2.25em"></th>
@@ -62,7 +61,11 @@
               <p-tableRadioButton [value]="rowData"></p-tableRadioButton>
             </td>
             <td *ngFor="let col of columns">
+
+
               {{rowData[col.field]}}
+
+
             </td>
           </tr>
         </ng-template>
@@ -102,7 +105,9 @@
         <ng-template pTemplate="body" let-rowData let-columns="columns">
           <tr>
             <td *ngFor="let col of columns">
-              {{rowData[col.field]}}
+              <span *ngIf="col.field==='transactionId'"><button type="text" pButton label="{{rowData[col.field]}}" (click)="openDialog(rowData)"></button></span>
+              <span *ngIf="col.field !=='transactionId'">{{rowData[col.field]}}</span>
+
             </td>
           </tr>
         </ng-template>
@@ -194,5 +199,15 @@
 
     </div>
   </form>
+</p-dialog>
+<p-dialog header="Transaction Detail" minWidth="800" [responsive]="true" [(visible)]="displayTransaction">
+  <div class="ui-g-12" *ngFor="let col of transactionCols">
+    <div class="ui-g-4">
+      {{col.header}}
+    </div>
+    <div class="ui-g-8">
+      {{rowData[col.field]}}
+    </div>
+  </div>
 </p-dialog>
 

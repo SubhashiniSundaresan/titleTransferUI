@@ -1,26 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~bootstrap/dist/css/bootstrap.min.css';
 
-@font-face {
-  font-family: 'icomoon';
-  src: url("../../assets/justice/fonts/icomoon/icomoon.eot?srf3rx");
-  src: url("../../assets/justice/fonts/icomoon/icomoon.eot?srf3rx#iefix") format("embedded-opentype"), url("../../assets/justice/fonts/icomoon/icomoon.ttf?srf3rx") format("truetype"), url("../../assets/justice/fonts/icomoon/icomoon.woff?srf3rx") format("woff"), url("../../assets/justice/fonts/icomoon/icomoon.svg?srf3rx#icomoon") format("svg");
-  font-weight: normal;
-  font-style: normal;
-}
+
 /* =======================================================
 *
 * 	Template Style
 *
 * ======================================================= */
-body {
-  font-family: "Open Sans", Arial, sans-serif;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 1.8;
-  color: #777;
-  background: #fff;
-}
+
 
 #page {
   position: relative;
@@ -30,6 +17,7 @@ body {
   -webkit-transition: 0.5s;
   -o-transition: 0.5s;
   transition: 0.5s;
+  font-size: 22px!important;
 }
 .offcanvas #page:after {
   -webkit-transition: 2s;
@@ -143,7 +131,7 @@ h1, h2, h3, h4, h5, h6, figure {
   display: inline;
 }
 .gtco-nav ul li a {
-  font-size: 12px;
+  font-size: 18px;
   padding: 30px 10px;
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.5);
@@ -502,7 +490,7 @@ h1, h2, h3, h4, h5, h6, figure {
 #gtco-practice-areas,
 #gtco-our-team,
 #gtco-contact {
-  padding: 7em 0;
+  padding: 3em 0;
   clear: both;
 }
 
@@ -1288,7 +1276,7 @@ form label {
 }
 
 .row-pb-md {
-  padding-bottom: 4em !important;
+  padding-bottom: 2em !important;
 }
 
 .row-pb-sm {

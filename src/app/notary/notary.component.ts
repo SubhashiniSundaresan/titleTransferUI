@@ -48,7 +48,8 @@ export class NotaryComponent implements OnInit {
   private approveTransaction: any;
   private allTransactions = [];
   private transactionCols = [];
-
+  private rowData = {};
+  displayTransaction: boolean;
   notaryID = new FormControl('', Validators.required);
   name = new FormControl('', Validators.required);
   emailAddress = new FormControl('', Validators.required);
@@ -67,6 +68,7 @@ export class NotaryComponent implements OnInit {
 
   ngOnInit(): void {
     this.display = false;
+    this.displayTransaction = false;
     this.cols = [
       {field: 'notaryID', header: 'Notary ID'},
       {field: 'name', header: 'Name'},
@@ -105,8 +107,7 @@ export class NotaryComponent implements OnInit {
       { field: 'transactionTimestamp', header: 'Transaction Timestamp' },
       { field: 'transactionInvoked', header: 'Transaction Invoked' },
       { field: 'participantInvoking', header: 'Participant Invoking' },
-      { field: 'identityUsed', header: 'Identity Used' },
-      { field: 'eventsEmitted', header: 'Events Emitted' },
+      { field: 'identityUsed', header: 'Identity Used' }
 
     ];
     this.loadContent();
@@ -334,5 +335,9 @@ export class NotaryComponent implements OnInit {
           this.errorMessage = error;
         }
       });
+  }
+  openDialog(rowData){
+    this.rowData = rowData;
+    this.displayTransaction = !this.displayTransaction;
   }
 }

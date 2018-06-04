@@ -51,7 +51,8 @@ export class SellerComponent implements OnInit {
   deedCols: any[];
   private allTransactions = [];
   private transactionCols = [];
-
+  private rowData = {};
+  displayTransaction: boolean;
   propertyListingID = new FormControl('', Validators.required);
   MLS = new FormControl('', Validators.required);
   URL = new FormControl('', Validators.required);
@@ -76,6 +77,8 @@ export class SellerComponent implements OnInit {
 
   ngOnInit(): void {
     this.display = false;
+    this.displayTransaction = false;
+
     this.cols = [
       { field: 'sellerID', header: 'Seller ID' },
       { field: 'name', header: 'Name' },
@@ -387,5 +390,9 @@ export class SellerComponent implements OnInit {
           this.errorMessage = error;
         }
       });
+  }
+  openDialog(rowData){
+    this.rowData = rowData;
+    this.displayTransaction = !this.displayTransaction;
   }
 }

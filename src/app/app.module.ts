@@ -37,7 +37,7 @@ import {MessagesModule} from 'primeng/messages';
 import {MessageModule} from 'primeng/message';
 import {AccordionModule} from 'primeng/accordion';
 import {TabViewModule} from 'primeng/tabview';
-
+import {CardModule} from 'primeng/card';
 // AoT requires an exported function for factories
 export const createTranslateLoader
 
@@ -78,6 +78,7 @@ export const createTranslateLoader
     MessagesModule,
     AccordionModule,
     TabViewModule,
+    CardModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

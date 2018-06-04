@@ -37,7 +37,7 @@
 }
 #containerBox #success-box {
   position: absolute;
-  width: 35%;
+  width: 45%;
   height: 100%;
   left: 12%;
   background: linear-gradient(to bottom right, #B0DB7D 40%, #99DBB4 100%);

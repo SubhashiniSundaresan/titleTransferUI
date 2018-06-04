@@ -2,6 +2,14 @@
 @import '~bootstrap/dist/css/bootstrap.min.css';
 
 
+body {
+  font-family: "Calibri Light", Arial, sans-serif!important;
+  font-weight: 400;
+  font-size: 18px!important;
+  line-height: 1.8;
+  color: #777;
+  background: #fff;
+}
 .gtco-social-icons li {
   margin: 0;
   padding: 0;

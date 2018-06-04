@@ -52,6 +52,8 @@ export class BuyerComponent implements OnInit {
   deedCols: any[];
   private allTransactions = [];
   private transactionCols = [];
+  private rowData = {};
+  displayTransaction: boolean;
 
   saleAgreementID = new FormControl('', Validators.required);
   propertyListing = new FormControl('', Validators.required);
@@ -70,6 +72,7 @@ export class BuyerComponent implements OnInit {
 
   ngOnInit(): void {
     this.display = false;
+    this.displayTransaction = false;
     this.cols = [
       { field: 'buyerID', header: 'Buyer ID' , width: '300px' },
       { field: 'name', header: 'Name'  , width: '300px' },
@@ -109,8 +112,7 @@ export class BuyerComponent implements OnInit {
       { field: 'transactionTimestamp', header: 'Transaction Timestamp' , width: '300px' },
       { field: 'transactionInvoked', header: 'Transaction Invoked'  , width: '300px' },
       { field: 'participantInvoking', header: 'Participant Invoking'  , width: '300px' },
-      { field: 'identityUsed', header: 'Identity Used'  , width: '700px' },
-      { field: 'eventsEmitted', header: 'Events Emitted'  , width: '300px' }
+      { field: 'identityUsed', header: 'Identity Used'  , width: '700px' }
     ];
     this.loadContent();
   }
@@ -373,5 +375,9 @@ this.allTransactions = response;
           this.errorMessage = error;
         }
       });
+  }
+  openDialog(rowData){
+    this.rowData = rowData;
+    this.displayTransaction = !this.displayTransaction;
   }
 }
