@@ -162,7 +162,7 @@
     </div>
   </form>
 </p-dialog>
-<p-dialog header="Transaction Detail" minWidth="800" [responsive]="true" [(visible)]="displayTransaction">
+<p-dialog header="Transaction Detail" minWidth="800" [responsive]="true" [contentStyle]="{'color':'black','background-color':'white'}" [(visible)]="displayTransaction">
     <div class="ui-g-12" *ngFor="let col of transactionCols">
       <div class="ui-g-4">
         {{col.header}}

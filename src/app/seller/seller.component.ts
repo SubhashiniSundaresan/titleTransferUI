@@ -117,8 +117,7 @@ export class SellerComponent implements OnInit {
       { field: 'transactionTimestamp', header: 'Transaction Timestamp' },
       { field: 'transactionInvoked', header: 'Transaction Invoked' },
       { field: 'participantInvoking', header: 'Participant Invoking' },
-      { field: 'identityUsed', header: 'Identity Used' },
-      { field: 'eventsEmitted', header: 'Events Emitted' },
+      { field: 'identityUsed', header: 'Identity Used' }
 
     ];
     this.loadContent();
