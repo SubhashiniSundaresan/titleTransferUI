@@ -1,24 +1,12 @@
 <div *ngIf=(errorMessage)>
   <p-message severity="error" text="{{errorMessage}}" life="3000" closable="false"></p-message>
 </div>
-
-
-<br><br>
 <div *ngIf="allParticipants.length>0" id="containerBox">
-  <div id="success-box">
-    <div class="face">
-      <div class="eye"></div>
-      <div class="eye right"></div>
-      <div class="mouth happy"></div>
-    </div>
-    <div class="shadow scale"></div>
-    <div class="message"><h1 class="alert">Hi {{allParticipants[0].name}}</h1>
-      <p>Your ID is {{allParticipants[0].notaryID}}. You are a Notary.</p>
-      <p>{{allParticipants[0].emailAddress}}, {{allParticipants[0].address}}</p></div>
-
+  <div class="alert alert-dark" role="alert">
+    Hi {{allParticipants[0].name}}, <p>Your ID is {{allParticipants[0].buyerID}}. You are a buyer.</p>
+    <p>{{allParticipants[0].emailAddress}}, {{allParticipants[0].address}}</p>
   </div>
 </div>
-<br><br>
 <div>
 
   <p-button label="Approve Land Title" [disabled]="!selectedAgreement"(click)='addTransaction()'></p-button>

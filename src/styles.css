@@ -406,3 +406,6 @@ form label {
     display: block;
   }
 }
+.navbar {
+  margin-bottom:0px!important;
+}
